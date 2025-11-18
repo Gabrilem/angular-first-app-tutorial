@@ -1,25 +1,26 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../product.service';
-import { Product } from '../product.model';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { products } from '../products';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './product-detail.html',
-  styleUrls: ['./product-detail.css']
+  imports: [
+    CommonModule,   // 👈 Necesario para *ngIf, *ngFor, etc.
+    CurrencyPipe    // 👈 Necesario para | currency
+  ],
+  templateUrl: './product-detail.html'
 })
 export class ProductDetail {
-  product: Product | undefined;
+  product: any;
 
-  constructor(
-    private route: ActivatedRoute,
-    private productService: ProductService
-  ) {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.product = this.productService.getProductById(id);
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    const routeParams = this.route.snapshot.paramMap;
+    const productId = Number(routeParams.get('productId'));
+    this.product = products.find(product => product.id === productId);
   }
 }
 

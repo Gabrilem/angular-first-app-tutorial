@@ -20,6 +20,9 @@ export class ProductList {
   constructor(private productService: ProductService) {
     this.products = this.productService.getProducts();
   }
+  onNotify() {
+    window.alert('You will be notified when the product goes on sale');
+  }
 
   notifyUser() {
     window.alert('You will be notified when the product goes on sale');

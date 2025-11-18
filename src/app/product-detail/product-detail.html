@@ -1,18 +1,13 @@
-<h2>Detalle del producto</h2>
+<h2>Product Details</h2>
 
-<div *ngIf="product; else noFound">
+<div *ngIf="product">
+
   <h3>{{ product.name }}</h3>
-  <p><strong>Precio:</strong> ${{ product.price }}</p>
+  <p>{{ product.description }}</p>
+  <p>{{ product.price | currency }}</p>
 
-  <p *ngIf="product.description">
-    <strong>Descripción:</strong> {{ product.description }}
-  </p>
+  <button>Buy</button>
+  <br /><br />
+  <a routerLink="/">Back</a>
 
-  <a routerLink="/">← Volver a la lista</a>
 </div>
-
-<ng-template #noFound>
-  <p>Producto no encontrado.</p>
-  <a routerLink="/">← Volver a la lista</a>
-</ng-template>
-
