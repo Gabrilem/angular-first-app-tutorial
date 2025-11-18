@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "first-app": {
+    "temp-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -26,12 +26,7 @@
             ],
             "styles": [
               "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            ]
           },
           "configurations": {
             "production": {
@@ -61,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "first-app:build:production"
+              "buildTarget": "temp-app:build:production"
             },
             "development": {
-              "buildTarget": "first-app:build:development"
+              "buildTarget": "temp-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -95,6 +90,6 @@
     }
   },
   "cli": {
-    "analytics": "30b1bf89-cc92-4f8e-94a4-4661977b38db"
+    "analytics": false
   }
 }
