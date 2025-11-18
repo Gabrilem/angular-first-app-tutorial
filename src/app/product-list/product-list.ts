@@ -1,19 +1,22 @@
+// src/app/product-list/product-list.ts
 import { Component } from '@angular/core';
-import { Product } from '../product.model';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
+import { Product } from '../product.model';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [],
-  templateUrl: './product-list.html',
-  styleUrl: './product-list.css',
+  imports: [CommonModule, RouterModule],
+  templateUrl: './product-list.html'
 })
 export class ProductList {
-    products = [
-    { id: 1, name: 'Product 1', price: 10 },
-    { id: 2, name: 'Product 2', price: 20 },
-    { id: 3, name: 'Product 3', price: 30 },
-  ];
-}
+  // <-- tipado explícito
+  products: Product[] = [];
 
+  constructor(private productService: ProductService) {
+    this.products = this.productService.getProducts();
+  }
+}
