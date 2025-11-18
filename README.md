@@ -19,6 +19,7 @@ Adaptarse a cambios y aprender nuevas herramientas rápidamente.
 Referencias de las conversaciones con IA: URL de las conversaciones 
 https://chatgpt.com/c/6917cb02-62a4-8327-be43-d31d004ca777
 https://chatgpt.com/c/6918126c-66f4-8327-ac16-8fda38fa287f
+https://chatgpt.com/c/691baec4-ee18-8329-b389-645c8654ddab
 
 ## Development server
 
