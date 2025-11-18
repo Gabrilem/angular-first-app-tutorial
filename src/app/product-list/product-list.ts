@@ -5,18 +5,23 @@ import { RouterModule } from '@angular/router';
 
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
+import { ProductAlerts } from '../product-alerts/product-alerts';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ProductAlerts],
   templateUrl: './product-list.html'
 })
 export class ProductList {
-  // <-- tipado explícito
+  // Tipado explícito para evitar errores de asignación
   products: Product[] = [];
 
   constructor(private productService: ProductService) {
     this.products = this.productService.getProducts();
+  }
+
+  notifyUser() {
+    window.alert('You will be notified when the product goes on sale');
   }
 }
